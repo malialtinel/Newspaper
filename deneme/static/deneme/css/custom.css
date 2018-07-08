@@ -1,0 +1,8 @@
+/* Copyright (C) Elartica Team, http://www.gnu.org/licenses/gpl.html GNU/GPL */
+
+a {
+    transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+}

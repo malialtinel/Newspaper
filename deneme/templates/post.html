@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+
+<head>
+      <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="ScriptsBundle">
+      <title> Halkın Gazetesi -  YOLLA </title>
+      <link rel="shortcut icon" href="/static/deneme/images/favicon.ico" type="image/x-icon">
+	  <link rel="icon" href="/static/deneme/images/favicon.ico" type="image/x-icon">
+      <!-- Core Bootstrap File -->
+      <link href="/static/deneme/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <!-- ANIMATE CSS -->
+      <link href="/static/deneme/css/animate.min.css" rel="stylesheet" type="text/css">
+      <!-- ZERO GRID CSS -->
+      <link href="/static/deneme/css/zerogrid.css" rel="stylesheet" type="text/css">
+      <!-- Mega Menu -->
+      <link rel="stylesheet" href="/static/deneme/css/megaMenu.css">
+      <!-- Font Awesome Icons -->
+      <link href="/static/deneme/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/static/deneme/css/themify-icons.css" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+      <!-- Owl Slider Css -->
+      <link href="/static/deneme/css/owl.carousel.css" rel="stylesheet" type="text/css">
+      <link href="/static/deneme/css/owl.theme.default.css" rel="stylesheet" type="text/css">
+      <!-- Template Core Css -->
+      <link href="/static/deneme/css/style.css" rel="stylesheet" type="text/css">
+      <link href="/static/deneme/css/breakingNews.css" rel="stylesheet" type="text/css">
+      <link href="/static/deneme/css/magnific-popup.css" rel="stylesheet">
+   
+      <link rel="stylesheet" id="color" href="/static/deneme/css/colors/defualt.css">
+      <!-- For Style Switcher -->
+      <link rel="stylesheet" id="theme-color" type="text/css" href="#" />
+   </head>
+   <!-- Body -->
+   <body>
+  
+<section class="topbar">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 col-sm-12 col-xs-12 nopadding">
+                  <div class="col-md-6 col-sm-3 col-xs-12">
+                     <ul class="social-media-icons-top">
+                        <li><a href="#"><i class="ti-facebook"></i> </a></li>
+                        <li><a href="#"><i class="ti-twitter"></i></a></li>
+                        <li><a href="#"><i class="ti-pinterest"></i></a></li>
+                        <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                        <li><a href="#"><i class="ti-google"></i></a></li>
+                        <li><a href="#"><i class="ti-youtube"></i></a></li>
+                        <li><a href="#"><i class="ti-vimeo"></i></a></li>
+                        <li><a href="#"><i class="ti-themify-favicon"></i></a></li>
+                     </ul>
+                  </div>
+                  <div class="col-md-6 col-sm-9 col-xs-12">
+                     <ul class="">
+                        {% if request.user.is_authenticated %}
+                         <li><a href="/logout"> <i class="ti-user"></i> Çıkış </a></li>
+                        <li><a href="/post"><i class="ti-share"></i> Yazı Ekle</a></li>
+                        {% else %}
+                        <li><a href="/login"> <i class="ti-user"></i> Giriş</a></li>
+                        <li><a href="/register"><i class="ti-share"></i> Kaydol</a></li>
+                        {% endif %}
+
+                        <li>Hoşgeldin {{ isim.isim }}</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+  
+  
+  
+<div class="container">
+  <h2>Birşeyler Anlat....</h2>
+  <form class="form-horizontal"  method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+     {{ form.as_p }}
+      {{ form.media }}
+      <label>Kategori Seçiniz</label><br>
+      <select name="katkat">
+          {% for kat in kat %}
+          <option value="{{ kat.id }}">{{kat.katadi}}</option>
+          {% endfor %}
+      </select>
+    <br><br>
+      <br><input type="submit" value="Yolla" class="btn btn-danger"/>
+
+  </form>
+</div>
+       <footer class="footer-2">
+         <div class="footer-top">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                     <div class="footer-block">
+                        <img src="images/logo-small.png" alt="" class="logo-footer">
+                        <div class="social-media-icons">
+                           <ul>
+                              <li> <a href="#"><i class="ti-facebook"></i></a></li>
+                              <li> <a href="#"><i class="ti-twitter"></i></a></li>
+                              <li> <a href="#"><i class="ti-instagram"></i></a></li>
+                              <li> <a href="#"><i class="ti-linkedin"></i></a></li>
+                              <li> <a href="#"><i class="ti-google"></i></a></li>
+                              <li> <a href="#"><i class="ti-vimeo"></i></a></li>
+                              <li> <a href="#"><i class="ti-pinterest"></i></a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                     <div class="footer-footer-area">
+                        <div class="copyright"> <span>&copy; 2017 Tüm hakları saklıdır.   By <a href="#">Halkın Gazetesi</a></span> </div>
+                        <ul>
+                           <li><a href="index.html">Anasayfa </a></li>
+                           <li><a href="#">Hakkımızda</a></li>
+                           <li><a href="#">Blog</a></li>
+                           <li><a href="#">SSS</a></li>
+                           <li><a href="#">Gizlilik Sözleşmesi</a></li>
+                           <li><a href="#">İletişim</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="footer-link">
+            <div class="container">
+            </div>
+         </div>
+      </footer>
+   
+   
+   </body>
+   
+   
+   
+   
+   
+   
+   </html>

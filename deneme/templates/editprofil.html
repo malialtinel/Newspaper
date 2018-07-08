@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+    <title>Title</title>
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Kaydet</button>
+    </form>
+</div>
+{% endblock %}
+</body>
+
+</html>

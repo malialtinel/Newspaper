@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="uk-height-1-1 tm-login" lang="en" data-config="{}">
+
+<!-- Mirrored from deepsoul-html.elartica.com/login-form.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Aug 2017 20:11:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kaydol</title>
+        <link rel="shortcut icon" href="favicon.gif">
+        <link id="theme-style" rel="stylesheet" href="/static/deneme/css/theme.css" type="text/css" />
+        <link rel="stylesheet" href="/static/deneme/css/custom.css" type="text/css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic" type="text/css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,300,300italic,700,700italic,400italic" type="text/css" />
+        <script type='text/javascript' src='/static/deneme/js/jquery.js'></script>
+        <script type='text/javascript' src='/static/deneme/js/jquery.cookie.min.js'></script>
+        <script type='text/javascript' src='/static/deneme/js/jquery.countdown.min.js'></script>
+        <script type='text/javascript' src='/static/deneme/js/jquery.hoverIntent.min.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/uikit.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/components/accordion.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/components/autocomplete.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/components/grid.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/components/lightbox.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/components/parallax.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/components/search.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/components/slider.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/components/slideshow.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/components/sticky.js'></script>
+        <script type='text/javascript' src='/static/deneme/uikit/js/components/tooltip.js'></script>
+        <script type='text/javascript' src='/static/deneme/js/theme.js'></script>
+    </head>
+    <body class="uk-height-1-1 uk-vertical-align uk-text-center">
+    {% block body%}
+        <div class="uk-vertical-align-middle uk-container-center uk-animation-fade">
+
+            <div id="tm-login-panel">
+                   <h3>Biz Halkız...</h3>
+          <!--      <form name="login-form" class="uk-form">
+                    <div class="uk-form-row">
+                        <label for="user_login">Ad Soyad</label>
+                        <input id="user_login" name="login" value="" type="text" required="required" />
+                    </div>
+					    <div class="uk-form-row">
+                        <label for="user_login">Kullanıcı Adı</label>
+                        <input id="user_login" name="login" value="" type="text" required="required"/>
+                    </div>
+					    <div class="uk-form-row">
+                        <label for="user_login">E-posta</label>
+                        <input id="user_login" name="login" value="" type="text" required="required"/>
+                    </div>
+
+                    <div class="uk-form-row">
+                        <label for="user_pass">Şifre</label>
+                        <input id="user_pass" name="pass" value="" type="password" required="required"/>
+                    </div>
+                    <div class="uk-form-row uk-form-row-nav">
+
+                        <a href="#">Şifreni mi unuttun?</a>
+                    </div>
+                    <div class="uk-form-row uk-text-center">
+                        <button class="uk-button uk-button-primary">Kaydol</button>
+                    </div>
+                    <div class="tm-social-login-panel">
+
+					  <div class="tm-social-login-provider-list">
+                            <div><a href="#" class="tm-social-login-provider-facebook">Facebook</a></div>
+                            <div><a href="#" class="tm-social-login-provider-google">Google</a></div>
+                            <div><a href="#" class="tm-social-login-provider-twitter">Twitter</a></div>
+                        </div>
+                    </div>
+                </form>-->
+                <form method="post">
+{% csrf_token /}
+{{ form.as_p}}
+
+                </form>
+
+                <div class="tm-back-to-site">
+                    <a href="/"><span class="tm-icon-long-arrow-left"></span>Anasayfa</a>
+                </div>
+            </div>
+
+        </div>
+    {% endblock %}
+    </body>
+
+
+</html>

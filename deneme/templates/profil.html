@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+
+<head>
+      <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+     
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="ScriptsBundle">
+      <title> Profil </title>
+      <link rel="shortcut icon" href="/static/deneme/images/favicon.ico" type="image/x-icon">
+	  <link rel="icon" href="/static/deneme/images/favicon.ico" type="image/x-icon">
+      <!-- Core Bootstrap File -->
+      <link href="/static/deneme/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <!-- ANIMATE CSS -->
+      <link href="/static/deneme/css/animate.min.css" rel="stylesheet" type="text/css">
+      <!-- ZERO GRID CSS -->
+      <link href="/static/deneme/css/zerogrid.css" rel="stylesheet" type="text/css">
+      <!-- Mega Menu -->
+      <link rel="stylesheet" href="/static/deneme/css/megaMenu.css">
+      <!-- Font Awesome Icons -->
+      <link href="/static/deneme/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/static/deneme/css/themify-icons.css" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+      <!-- Owl Slider Css -->
+      <link href="/static/deneme/css/owl.carousel.css" rel="stylesheet" type="text/css">
+      <link href="/static/deneme/css/owl.theme.default.css" rel="stylesheet" type="text/css">
+      <!-- Template Core Css -->
+      <link href="/static/deneme/css/style.css" rel="stylesheet" type="text/css">
+      <link href="/static/deneme/css/breakingNews.css" rel="stylesheet" type="text/css">
+      <link href="/static/deneme/css/magnific-popup.css" rel="stylesheet">
+     
+      <link rel="stylesheet" id="color" href="/static/deneme/css/colors/defualt.css">
+
+   </head>
+   <!-- Body -->
+   <body>
+   {% block body %}
+      <div id="preloader">
+         <div id="status">
+            <div class="spinner">
+               <div class="rect1"></div>
+               <div class="rect2"></div>
+               <div class="rect3"></div>
+               <div class="rect4"></div>
+               <div class="rect5"></div>
+            </div>
+         </div>
+      </div>
+   
+      <section class="topbar">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 col-sm-12 col-xs-12 nopadding">
+                  <div class="col-md-6 col-sm-3 col-xs-12">
+                     <ul class="social-media-icons-top">
+                        <li><a href="#"><i class="ti-facebook"></i> </a></li>
+                        <li><a href="#"><i class="ti-twitter"></i></a></li>
+                        <li><a href="#"><i class="ti-pinterest"></i></a></li>
+                        <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                        <li><a href="#"><i class="ti-google"></i></a></li>
+                        <li><a href="#"><i class="ti-youtube"></i></a></li>
+                       <li>   <form action="" class="search-form">
+                <div class="form-group has-feedback">
+            		<label for="search" class="sr-only">Search</label>
+            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
+              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+            	</div>
+            </form></li>
+                     </ul>
+                  </div>
+                  <div class="col-md-6 col-sm-9 col-xs-12">
+                     <ul class="">
+                       {% if request.user.is_authenticated %}
+                         <li><a href="/logout"> <i class="ti-user"></i> Çıkış </a></li>
+                        <li><a href="/post"><i class="ti-share"></i> Yazı Ekle</a></li>
+                         <li><a href="/profil"><i class="ti-user"></i> Profil</a></li>
+                        {% else %}
+                        <li><a href="/login"> <i class="ti-user"></i> Giriş</a></li>
+                        <li><a href="/register"><i class="ti-share"></i> Kaydol</a></li>
+                        {% endif %}
+
+                        <li>Hoşgeldin {{ isim.isim }}</li>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="menu-container-section">
+         <nav id="menu-3" class="megaMenu" data-color="">
+            <div class="nav-container">
+               <div class="sticky-container">
+                  <!-- mobile trigger button for show the collapse drop down -->
+                  <ul class="menu-mobile-trigger">
+                     <li><i class="fa fa-bars"></i></li>
+                  </ul>
+                  <ul class="menu-logo hidden-md">
+                     <li>
+                        <a href="/">
+                        <img src="/static/deneme/images/logo-small.png" class="img-responsive" alt="logo">
+                        </a>
+                     </li>
+                  </ul>
+                  <ul class="menu-search-bar-mobile">
+                     <li>
+                        <form action="#">
+                           <button type="submit"><i class="fa fa-search"></i></button>
+                        <input type="search" name="s" placeholder="Search...">
+                        </form>
+                     </li>
+                  </ul>
+                   <ul class="menu-links pull-right">
+                      {% for kategori in kat.all %}
+                     <li>
+                        <a href="/{{ kategori.id }}/kategoriIndex"><span class="text">  {{ kategori.katadi }} </span> </a>
+                     </li>
+                       {% endfor %}
+                  </ul>
+                  <ul class="menu-search-bar-desktop">
+                     <li>
+                        <a href="javascript:void(0)">
+                        <i class="fa fa-search"></i>
+                        </a>
+                        <div id="open-1" class="drop-down">
+                           <form action="#">
+                              <input type="search" name="s" placeholder="Search...">
+                              <button type="submit">Search</button>
+                           </form>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </section>
+      <section class="my-breadcrumb">
+         <div class="container page-banner">
+            <div class="row">
+               <div class="col-sm-12 col-md-12 col-xs-12">
+                  <h1>Gönderilerin</h1>
+                  <ol class="breadcrumb">
+                     <li><a href="index.html">Anasayfa</a></li>
+                     <li class="active"> {{ kullanici.kullaniciadi }} </li>
+
+                  </ol>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="main-content">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-8 col-sm-12 col-xs-12">
+                  <div class="section listing">
+                     <article class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                        	<div class="author-box">
+                                <div class="col-md-12 col-sm-12 col-xs-12 nopadding">
+                                   <div class="col-md-3 col-sm-3 col-xs-12 nopadding">
+                                      <img src="/static/deneme/images/sdsds.jpg" class="img-responsive" alt="">
+                                   </div>
+                                   <div class="col-md-9 col-sm-9 col-xs-12">
+                                      <label>Kullanici Adı:</label>
+                                      <h3><a href="#">{{ kullanici.kullaniciadi }}</a></h3>
+                                      <label>İsim:</label>
+                                      <h3><a href="#">{{ kullanici.isim }}</a></h3>
+                                      <label>E-mail :</label>
+                                      <h2> {{ kullanici.mail }} </h2>
+                                      <p>Appropriately optimize interactive e-services for economically sound interfaces. Seamlessly integrate one-to-one platforms after one-to-one leadership. Professionally cultivate fully researched models after.</p>
+                                      <div class="social-media-icons">
+                                         <ul>
+                                            <li> <a href="#"><i class="ti-facebook"></i></a></li>
+                                            <li> <a href="#"><i class="ti-twitter"></i></a></li>
+                                            <li> <a href="#"><i class="ti-instagram"></i></a></li>
+                                            <li> <a href="#"><i class="ti-linkedin"></i></a></li>
+                                         </ul>
+                                      </div>
+                                   </div>
+                                </div>
+                            </div>
+                           <div class="grid-1">
+                              {% for post in ada %}
+                              <ul>
+                                 <li class="col-md-5 col-sm-3 col-xs-12 nopadding">
+                                    <div class="thumb">
+                                       {% if post.image %}
+
+                                       <img alt="" src="{{ post.image.url }}">
+
+                                       {% else %}
+
+                                       <img alt="" src="/static/noi.jpg">
+
+
+                                       {% endif %}
+                                    </div>
+                                    <div class="hover-show-div">
+                                       <a href="#" class="post-type">
+                                       <i class="ti-image"></i>
+                                       </a>
+                                    </div>
+                                 </li>
+                                 <li class="col-md-7 col-sm-9 col-xs-12">
+                                    <div class="desc post-content">
+                                       <h5><a href="#">{{ post.baslik }} </a></h5>
+                                       <ul class="post-tools">
+                                          <li> by <a href="#"><strong> {{ post.user.username }}</strong> </a></li>
+                                          <li> {{ post.tarihi }} </li>
+
+                                       </ul>
+                                       <p> {{ post.content | safe | truncatewords:15 }} </p>
+                                       <div class="btn-group">
+                                          <a href="/{{ post.id }}"  type="button" class="btn btn-primary">Detay</a>
+  <a href="/{{ post.id }}/update" type="button" class="btn btn-primary">Güncelle</a>
+  <a href="/{{ post.id }}/delete"  type="button" class="btn btn-primary">Sil</a>
+
+</div>
+                                    </div>
+                                 </li>
+                              </ul>
+                              {% endfor %}
+                           </div>
+
+
+                        </div>
+                     </article>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-12 col-xs-12" id="sidebar">
+                  <aside>
+                  	 <div class="widget widget-bg">
+                        <div class="widget widget-bg">
+                        <div class="heading">
+
+                           <span class="heading-ping"></span>
+                        </div>
+                        <div class="social-counter-widget">
+                           <ul class="social-counter-list-2 social-style-3">
+                              <li class="social-item">
+                                 <a href="#">
+                                    <div class="social-item-icon twitter">
+                                       <i class="fa fa-twitter"></i> <span class="title">Twitter</span>
+                                       <div class="social-item-meta">
+                                          <span class="social-item-num">573</span>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </li>
+                              <li class="social-item">
+                                 <a href="#">
+                                    <div class="social-item-icon facebook">
+                                       <i class="fa fa-facebook"></i> <span class="title">Facebook</span>
+                                       <div class="social-item-meta">
+                                          <span class="social-item-num">15732</span>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </li>
+                              <li class="social-item">
+                                 <a href="#">
+                                    <div class="social-item-icon youtube">
+                                       <i class="fa fa-youtube"></i> <span class="title">Youtube</span>
+                                       <div class="social-item-meta">
+                                          <span class="social-item-num">136845</span>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </li>
+                              <li class="social-item">
+                                 <a href="#">
+                                    <div class="social-item-icon instgram">
+                                       <i class="fa fa-instagram"></i><span class="title">Instagram</span>
+                                       <div class="social-item-meta">
+                                          <span class="social-item-num">65489</span>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </li>
+                              <li class="social-item">
+                                 <a href="#">
+                                    <div class="social-item-icon gplus">
+                                       <i class="fa fa-google-plus"></i><span class="title">Google+</span>
+                                       <div class="social-item-meta">
+                                          <span class="social-item-num">7233</span>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </li>
+                              <li class="social-item">
+                                 <a href="#">
+                                    <div class="social-item-icon linkedin">
+                                       <i class="fa fa-linkedin"></i><span class="title">Linkedin</span>
+                                       <div class="social-item-meta">
+                                          <span class="social-item-num">1023</span>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     </div>
+
+
+
+                  </aside>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer>
+         <div class="footer-top bg-dark">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-3 col-sm-6 col-xs-12">
+                     <div class="footer-block">
+                        <img src="/static/deneme/images/logo-small.png" alt="" class="logo-footer">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .</p>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-sm-6 col-xs-12 no-padding">
+                     <h2>Yeni Eklenenler</h2>
+                     <ul class="tabs-posts">
+                        <li>
+                           <div class="pic"> <a href="#"><img alt="" class="img-responsive" src="/static/deneme/images/small-posts/small-1.jpg"></a> </div>
+                           <div class="caption"> <a href="#">İYİ Parti Çekim Alanı Yaratabilir Mi?</a> </div>
+                           <ul class="post-tools">
+                              <li>  30 Ekim, 2017 </li>
+                              <li title="Comments"> <a href="#"><i class="ti-thought"></i> 953 </a></li>
+                           </ul>
+                        </li>
+                        <li>
+                           <div class="pic"> <a href="#"><img alt="" class="img-responsive" src="/static/deneme/images/small-posts/small-2.jpg"></a> </div>
+                           <div class="caption"> <a href="#">Hukuk Mu, Guguk Mu?</a> </div>
+                           <ul class="post-tools">
+                              <li>  30 Ekim, 2017  </li>
+                              <li title="Comments"> <a href="#"><i class="ti-thought"></i> 105</a> </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col-xs-12 col-md-3 col-sm-6 ">
+                     <h2>Popüler Kategoriler</h2>
+                     <div class="tag-list"> <a href="#">Erdoğan</a> <a href="#">Istanbul</a> <a href="#">MHP</a> <a href="#">Gündem</a> <a href="#">Gökçek</a> <a href="#">CHP</a>  <a href="#">blog</a> <a href="#">Teknoloji</a> <a href="#">IPhone</a> </div>
+                  </div>
+                  <div class="col-md-3 col-sm-6 col-xs-12 no-padding">
+                     <h2>İletişim</h2>
+                     <div class="footer-detail">
+                        <ul class="personal-info">
+                           <li><i class="fa fa-map-marker"></i> Meşrutiyet Mahallesi, 34980 Şile/İstanbul.</li>
+                           <li><i class="fa fa-envelope"></i> info@halkingazetesi.com </li>
+                           <li><i class="fa fa-phone"></i> (0-216) 712 14 60  </li>
+                        </ul>
+                     </div>
+                     <div class="social-media-icons">
+                        <ul>
+                           <li> <a href="#"><i class="ti-facebook"></i></a></li>
+                           <li> <a href="#"><i class="ti-twitter"></i></a></li>
+                           <li> <a href="#"><i class="ti-instagram"></i></a></li>
+                           <li> <a href="#"><i class="ti-linkedin"></i></a></li>
+                           <li> <a href="#"><i class="ti-google"></i></a></li>
+                           <li> <a href="#"><i class="ti-vimeo"></i></a></li>
+                           <li> <a href="#"><i class="ti-pinterest"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="footer-link bg-white">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                     <ul>
+                        <li><a href="#">Gizlilik Sözleşmesi</a></li>
+                        <li><a href="#">Hakkımızda</a></li>
+                        <li><a href="#">SSS</a></li>
+                        <li><a href="#">Blog</a></li>
+                     </ul>
+                     <div class="copyright"> <span>&copy; 2017 Tüm Hakları Saklıdır.</span> </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <a href="#" class="scrollup"><i class="fa fa-chevron-up"></i></a>
+      <!-- MOZDERNIZR JS --> 
+      <script src="/static/deneme/js/modernizr.js" type="text/javascript"></script>
+      <!-- Core Jquery --> 
+      <script src="/static/deneme/js/jquery.min.js" type="text/javascript"></script>
+      <!-- Jquery Plugin --> 
+      <script src="/static/deneme/js/jquery-migrate.min.js" type="text/javascript"></script>
+      <!-- Bootstrap Core Js --> 
+      <script src="/static/deneme/js/bootstrap.min.js" type="text/javascript"></script>
+      <!-- Mega Menu Script -->
+      <script src="/static/deneme/js/megaMenu.min.js"></script>
+      <!-- Owl Slider --> 
+      <script src="/static/deneme/js/owl.carousel.min.js" type="text/javascript"></script>
+      <script src="/static/deneme/js/breakingNews.js" type="text/javascript"></script>
+      <script src="/static/deneme/js/theia-sticky-sidebar.js" type="text/javascript"></script>
+      <!-- Gallery Magnify  -->
+      <script src="/static/deneme/js/jquery.magnific-popup.min.js"></script>
+      <!--Style Switcher -->
+      <script src="/static/deneme/js/color-switcher.js"></script>
+      <!-- Template Custom Js --> 
+      <script src="/static/deneme/js/custom.js" type="text/javascript"></script>
+      <!-- Body End -->
+   {% endblock %}
+   </body>
+
+</html>
